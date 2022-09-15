@@ -1,4 +1,7 @@
 #include "main.h"
+/**
+ * hghghg
+ **/
 int print_last_digit(int)
 {
 	int ln = n % 10;
