@@ -1,77 +1,45 @@
-#include <stdio.h>
-
-#include <math.h>
-
-
-
-/**
+ * @s: string to encode
  *
- *  * main - finds and prints the largest prime factor of the number 612852475143
+ *  *
  *
- *   * followed by a new line
+ *   * Return: address of s
  *
- *    * Return: Always 0 (Success)
- *
- *     */
+ *    */
 
-int main(void)
+ char *rot13(char *s)
 
 {
 
-		long int n;
+		int i, j;
 
-			long int max;
+			char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-				long int i;
-
-
-
-					n = 612852475143;
-
-						max = -1;
+				char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 
 
-							while (n % 2 == 0)
+					for (i = 0; *(s + i); i++)
 
-									{
+							{
 
-												max = 2;
+										for (j = 0; j < 52; j++)
 
-														n /= 2;
+													{
 
-															}
+																	if (a[j] == *(s + i))
 
+																					{
 
+																										*(s + i) = b[j];
 
-								for (i = 3; i <= sqrt(n); i = i + 2)
+																														break;
 
-										{
+																																	}
 
-													while (n % i == 0)
+																			}
 
-																{
+											}
 
-																				max = i;
-
-																							n = n / i;
-
-																									}
-
-														}
-
-
-
-									if (n > 2)
-
-												max = n;
-
-
-
-										printf("%ld\n", max);
-
-
-
-											return (0);
+						return (s);
 
 }
